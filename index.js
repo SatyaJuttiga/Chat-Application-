@@ -12,3 +12,15 @@ server.listen(port,()=>{
 app.get('/',(req,res)=>{
     res.sendFile(__dirname + '/public/index.html');
 });
+
+app.get('/group1',(req,res)=>{
+    res.sendFile(__dirname + '/public/group1.html');
+});
+
+app.get('/group2',(req,res)=>{
+    res.sendFile(__dirname + '/public/group2.html');
+});
+
+app.get('/group3',(req,res)=>{
+    res.sendFile(__dirname + '/public/group3.html');
+});
