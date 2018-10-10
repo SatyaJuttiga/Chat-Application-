@@ -24,3 +24,23 @@ app.get('/group2',(req,res)=>{
 app.get('/group3',(req,res)=>{
     res.sendFile(__dirname + '/public/group3.html');
 });
+
+const tech=io.of('/tech');
+
+tech.on('connection',(socket)=>{
+    socket.on('join',(data)=>{
+      socket.join(data.room);
+      tech.in(data.room).emit('message',`New User Joined ${data.room} root!`);
+    });
+
+    socket.on('message',(data)=>{
+    tech.in(data.room).emit('message',data.msg);
+    });
+
+    io.on('disconnect',()=>{
+        console.log('User Disconnected');
+        tech.emit('message','User Disconnected');
+    });
+
+});
+
