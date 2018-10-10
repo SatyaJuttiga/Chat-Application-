@@ -6,5 +6,9 @@ const port= 3000;
 
 
 server.listen(port,()=>{
-    console.log('server is listening on port: $(port)');
+    console.log('server is listening on 3000');
+});
+
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname + '/public/index.html');
 });
