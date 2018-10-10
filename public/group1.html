@@ -24,20 +24,13 @@
                         <div class="input-group">
                             <input id="m" autocomplete="off" type="text" class="form-control" placeholder="Message....." aria-label="Message.....">
                             <span class="input-group-btn">
-                                <button class="btn btn-sucess" type="submit">Send</button>
+                                <button class="btn btn-success" type="submit">Send</button>
                             </span>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         </script>
@@ -59,17 +52,12 @@
            });
 
            socket.on('connect',()=>{
-               socket.emit('join',{emit:room});
+               socket.emit('join',{room:room});
            });
 
            socket.on('message',(msg)=>{
                $('#messages').append($ ('<li>').text(msg));
            });
        </script>
-
-
-
-
     </body>
-
 </html>
